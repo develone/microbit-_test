@@ -1,3 +1,5 @@
+# 01/12/19
+# Goal: to add bluethooth to the RPi with and FPGA
 I just was able to get the first Ultibo example working on the microbit & bare metal
 RPi3B  https://github.com/develone/microbit-_test/blob/master/first_ex_mark/pic/a.jpeg
 & https://github.com/develone/microbit-_test/blob/master/first_ex_mark/pic/b.jpeg
