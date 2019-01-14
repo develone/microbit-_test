@@ -13,11 +13,11 @@ test the example find my phone which when y press a Button Use the phone to tell
 On power up and reset the micro displays "ULTIBO 98".
 Only 8 files are needed on the micro sd to boot on all version of the RPi
 RPi Zero, RPi, RPi2B, RPi3B and RPi3B+
-bootcode.bin
-fixup.dat  
-start.elf
-kernel=microbitdemo-kernel-RPI.img
-kernel=microbitdemo-kernel-RPI2.img
-kernel=microbitdemo-kernel-RPI3.img
-microbitdemo-cmdline.txt
-microbitdemo-config.txt
+## bootcode.bin
+## fixup.dat  
+## start.elf
+## kernel=microbitdemo-kernel-RPI.img
+## kernel=microbitdemo-kernel-RPI2.img
+## kernel=microbitdemo-kernel-RPI3.img
+## microbitdemo-cmdline.txt
+## microbitdemo-config.txt
