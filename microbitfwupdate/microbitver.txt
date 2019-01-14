@@ -1,0 +1,41 @@
+01/07/19
+https://microbit.org/guide/firmware/
+
+# DAPLink Firmware - see https://mbed.com/daplink
+Unique ID: 9900000048144e45006c5007000000430000000097969901
+HIC ID: 97969901
+Auto Reset: 1
+Automation allowed: 0
+Daplink Mode: Interface
+Interface Version: 0241
+Git SHA: fa4132987102c51c110751d8bdb8a74aeb7b071b
+Local Mods: 1
+USB Interfaces: MSD, CDC, HID
+Interface CRC: 0xe369fb16
+1. Download the hex file from this page to your computer.
+0250_kl26z_microbit_0x8000.hex
+copied to notes_txt
+2. Then with the battery pack removed and a USB lead connected, hold the reset button at the back 
+of the micro:bit and plug the USB lead into your computer. You should see a drive appear in your 
+file manager called MAINTENANCE.
+
+3. Drag and drop the .HEX you downloaded form this page onto the micro:bit and wait for the 
+yellow system LED on the back of the device to stop flashing. When the upgrade is completed, 
+the micro:bit will reset, ejecting itself from the computer and re-appear in normal MICROBIT drive mode.
+
+4. Finally, check the DETAILS.TXT file that is on the MICROBIT drive and make sure that it has the 
+same version number as the .HEX firmware that you just downloaded and flashed to the interface chip.
+# DAPLink Firmware - see https://mbed.com/daplink
+Unique ID: 9900000048144e45006c5007000000430000000097969901
+HIC ID: 97969901
+Auto Reset: 1
+Automation allowed: 0
+Overflow detection: 0
+Daplink Mode: Interface
+Interface Version: 0250
+Git SHA: 682d8303e37355532402b8d93c4f240a3cec02a9
+Local Mods: 0
+USB Interfaces: MSD, CDC, HID, WebUSB
+Interface CRC: 0x3f2b7e12
+Remount count: 0
+URL: https://microbit.org/device/?id=9900&v=0250
