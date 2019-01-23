@@ -1,0 +1,106 @@
+01/23/19
+Goal: Testing Mark's Ultibo & MicroBit code.
+using the C/C++ offline compiler.
+
+Results: Same observation with Test 1 as Test 2
+This proves that the MicroBit hex file can be created
+on a RPi3B using yotta. 
+
+Steps:
+
+Downloaded 
+ultibo-ble-observer-v20190123.zip
+Extracted
+pi@mypi3-1:~ $ ls Downloads/test_mark/
+bleobserverkernel-cmdline.txt      fixup.dat
+bleobserverkernel-config.txt       microbit-blebuttonsbroadcaster.hex
+bleobserverkernel-kernel-RPI3.img  release-message.md
+bootcode.bin                       start.elf
+config.txt
+
+Test 1
+1.0)
+copied the following files to ultibo micro sd
+	bleobserverkernel-cmdline.txt
+	bleobserverkernel-config.txt
+	bleobserverkernel-kernel-RPI3.img
+2.0)
+copied to MicroBit
+	microbit-blebuttonsbroadcaster.hex
+
+Test 2
+1.0) same as step 1.0 from test 1.
+
+2.0)
+	2.1) pi@mypi3-1:mkdir mark_repo
+	2.2) pi@mypi3-1:cd mark_repo/
+	2.3) pi@mypi3-1:~/testbuilds/mark_repo $ git clone https://github.com/markfirmware/microbit-samples.git
+	Cloning into 'microbit-samples'...
+	remote: Enumerating objects: 41, done.
+	remote: Counting objects: 100% (41/41), done.
+	remote: Compressing objects: 100% (36/36), done.
+	remote: Total 369 (delta 15), reused 24 (delta 4), pack-reused 328
+	Receiving objects: 100% (369/369), 999.51 KiB | 1.51 MiB/s, done.
+	Resolving deltas: 100% (144/144), done.
+
+	2.4) pi@mypi3-1:~/testbuilds/mark_repo $ cd microbit-samples/
+
+	2.5) pi@mypi3-1:~/testbuilds/mark_repo/microbit-samples $ yt target bbc-microbit-classic-gcc
+
+	2.6) pi@mypi3-1:~/testbuilds/mark_repo/microbit-samples $ cp source/examples/blebuttonsbroadcaster/main.cpp source/
+
+	2.7) pi@mypi3-1:~/testbuilds/mark_repo/microbit-samples $ yt clean
+
+	2.8) pi@mypi3-1:~/testbuilds/mark_repo/microbit-samples $ yt build
+info: get versions for microbit
+info: download microbit@v2.1.1 from GitHub lancaster-university/microbit
+info: get versions for microbit-dal
+info: download microbit-dal@v2.1.1 from GitHub lancaster-university/microbit-dal
+info: get versions for mbed-classic
+info: download mbed-classic@microbit_hfclk+mb6 from GitHub lancaster-university/mbed-classic
+info: get versions for ble
+info: download ble@v2.5.0+mb3 from GitHub lancaster-university/BLE_API
+info: get versions for ble-nrf51822
+info: download ble-nrf51822@v2.5.0+mb7 from GitHub lancaster-university/nRF51822
+info: get versions for nrf51-sdk
+info: download nrf51-sdk@v2.2.0+mb4 from GitHub lancaster-university/nrf51-sdk
+info: generate for target: bbc-microbit-classic-gcc 0.2.3 at /home/pi/testbuilds/mark_repo/microbit-samples/yotta_targets/bbc-microbit-classic-gcc
+CMake Deprecation Warning at /usr/share/cmake-3.7/Modules/CMakeForceCompiler.cmake:69 (message):
+  The CMAKE_FORCE_C_COMPILER macro is deprecated.  Instead just set
+  CMAKE_C_COMPILER and allow CMake to identify the compiler.
+Call Stack (most recent call first):
+  /home/pi/testbuilds/mark_repo/microbit-samples/yotta_targets/mbed-gcc/CMake/toolchain.cmake:78 (cmake_force_c_compiler)
+  toolchain.cmake:8 (include)
+  /usr/share/cmake-3.7/Modules/CMakeDetermineSystem.cmake:88 (include)
+  CMakeLists.txt:76 (project)
+
+
+CMake Deprecation Warning at /usr/share/cmake-3.7/Modules/CMakeForceCompiler.cmake:83 (message):
+  The CMAKE_FORCE_CXX_COMPILER macro is deprecated.  Instead just set
+  CMAKE_CXX_COMPILER and allow CMake to identify the compiler.
+Call Stack (most recent call first):
+  /home/pi/testbuilds/mark_repo/microbit-samples/yotta_targets/mbed-gcc/CMake/toolchain.cmake:79 (cmake_force_cxx_compiler)
+  toolchain.cmake:8 (include)
+  /usr/share/cmake-3.7/Modules/CMakeDetermineSystem.cmake:88 (include)
+  CMakeLists.txt:76 (project)
+
+
+GCC version is: 5.4.1
+-- The ASM compiler identification is GNU
+-- Found assembler: /usr/bin/arm-none-eabi-gcc
+suppressing warnings from ble-nrf51822
+suppressing warnings from nrf51-sdk
+suppressing ALL warnings from mbed-classic, ble, ble-nrf51822 & nrf51-sdk
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/pi/testbuilds/mark_repo/microbit-samples/build/bbc-microbit-classic-gcc
+[172/172] Linking CXX executable source/microbit-samples
+/usr/lib/gcc/arm-none-eabi/5.4.1/../../../arm-none-eabi/bin/ld: warning: /usr/lib/gcc/arm-none-eabi/5.4.1/../../../arm-none-eabi/lib/armv6-m/libstdc++_nano.a(new_opv.o) uses 2-byte wchar_t yet the output is to use 4-byte wchar_t; use of wchar_t values across objects may fail
+/usr/lib/gcc/arm-none-eabi/5.4.1/../../../arm-none-eabi/bin/ld: warning: /usr/lib/gcc/arm-none-eabi/5.4.1/../../../arm-none-eabi/lib/armv6-m/libstdc++_nano.a(del_op.o) uses 2-byte wchar_t yet the output is to use 4-byte wchar_t; use of wchar_t values across objects may fail
+/usr/lib/gcc/arm-none-eabi/5.4.1/../../../arm-none-eabi/bin/ld: warning: /usr/lib/gcc/arm-none-eabi/5.4.1/../../../arm-none-eabi/lib/armv6-m/libstdc++_nano.a(del_opv.o) uses 2-byte wchar_t yet the output is to use 4-byte wchar_t; use of wchar_t values across objects may fail
+/usr/lib/gcc/arm-none-eabi/5.4.1/../../../arm-none-eabi/bin/ld: warning: /usr/lib/gcc/arm-none-eabi/5.4.1/../../../arm-none-eabi/lib/armv6-m/libstdc++_nano.a(atexit_arm.o) uses 2-byte wchar_t yet the output is to use 4-byte wchar_t; use of wchar_t values across objects may fail
+/usr/lib/gcc/arm-none-eabi/5.4.1/../../../arm-none-eabi/bin/ld: warning: /usr/lib/gcc/arm-none-eabi/5.4.1/../../../arm-none-eabi/lib/armv6-m/libstdc++_nano.a(new_op.o) uses 2-byte wchar_t yet the output is to use 4-byte wchar_t; use of wchar_t values across objects may fail
+/usr/lib/gcc/arm-none-eabi/5.4.1/../../../arm-none-eabi/bin/ld: warning: /usr/lib/gcc/arm-none-eabi/5.4.1/../../../arm-none-eabi/lib/armv6-m/libstdc++_nano.a(new_handler.o) uses 2-byte wchar_t yet the output is to use 4-byte wchar_t; use of wchar_t values across objects may fail
+
+	2.9) pi@mypi3-1:~/testbuilds/mark_repo/microbit-samples $ cp build/bbc-microbit-classic-gcc/source/microbit-samples-combined.hex /media/pi/MICROBIT/
+	2.10) pi@mypi3-1:~/testbuilds/mark_repo/microbit-samples $ sudo umount /media/pi/MICROBIT 
